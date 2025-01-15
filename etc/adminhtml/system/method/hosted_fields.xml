@@ -50,26 +50,25 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Allow customers to save their card details for future purchases.</comment>
                 </field>
-                <field id="max_saved_cards" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Maximum Saved Cards Per Customer</label>
-                    <validate>validate-number validate-greater-than-zero</validate>
-                    <comment>Maximum number of cards a customer can save to their account.</comment>
+                <group id="one_click" translate="label" type="text" sortOrder="110"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OneClick personalisation</label>
                     <depends>
                         <field id="allow_use_oneclick">1</field>
                     </depends>
-                </field>
-                <field id="saved_card_highlight_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Selected Card Highlight Color</label>
-                    <depends>
-                        <field id="allow_use_oneclick">1</field>
-                    </depends>
-                </field>
-                <field id="save_card_toggle_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Save Card Toggle Color</label>
-                    <depends>
-                        <field id="allow_use_oneclick">1</field>
-                    </depends>
-                </field>
+                    <field id="max_saved_cards" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Maximum Saved Cards Per Customer</label>
+                        <validate>validate-number validate-greater-than-zero</validate>
+                        <comment>If you leave the field empty, all the customer's saved cards will be displayed.</comment>
+                    </field>
+                    <field id="saved_card_highlight_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Selected Card Highlight Color</label>
+                        <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
+                    </field>
+                    <field id="save_card_toggle_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Save Card Toggle Color</label>
+                        <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
+                    </field>
+                </group>
                 <field id="color" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Color</label>
                 </field>
