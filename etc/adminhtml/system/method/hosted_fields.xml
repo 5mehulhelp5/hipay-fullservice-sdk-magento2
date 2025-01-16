@@ -71,6 +71,7 @@
                 </group>
                 <field id="color" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Color</label>
+                    <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
                 </field>
                 <field id="font_family" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Font Family</label>
@@ -83,12 +84,15 @@
                 </field>
                 <field id="placeholder_color" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Placeholder color</label>
+                    <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
                 </field>
                 <field id="caret_color" translate="label" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Caret color</label>
+                    <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
                 </field>
                 <field id="icon_color" translate="label" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Icon color</label>
+                    <frontend_model>HiPay\FullserviceMagento\Block\Adminhtml\System\Config\Form\HipayColorPicker</frontend_model>
                 </field>
                 <field id="cancel_pending_order" translate="label" type="select" sortOrder="49" showInDefault="1" showInWebsite="1"
                        showInStore="0">

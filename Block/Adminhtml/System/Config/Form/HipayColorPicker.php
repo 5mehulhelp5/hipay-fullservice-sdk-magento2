@@ -42,15 +42,14 @@ class HipayColorPicker extends Field
             require(["jquery", "jquery/ui"], function ($) {
                 $(document).ready(function () {
                     var $el = $("#' . $element->getHtmlId() . '");
-                    $el.css("backgroundColor", "' . $value . '");
                     
                     $el.spectrum({
                         showInput: true,
-                        allowEmpty: false,
+                        allowEmpty: true,
                         showInitial: true,
                         preferredFormat: "hex",
                         clickoutFiresChange: true,
-                        showButtons: false,
+                        showButtons: true,
                         change: function(color) {
                             $el.val(color.toHexString());
                         }
