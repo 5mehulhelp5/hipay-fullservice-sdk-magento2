@@ -30,8 +30,7 @@ define(['jquery', 'ko', 'Magento_Checkout/js/view/payment/default'], function (
       customerCards:
         window.checkoutConfig.payment.hiPayFullservice.customerCards,
       createOneclick: false,
-      maxSavedCard:
-        window.checkoutConfig.payment.hiPayFullservice.maxSavedCard ?? 5,
+      maxSavedCard: window.checkoutConfig.payment.hiPayFullservice.maxSavedCard,
       creditCardType: '',
       creditCardOwner: '',
       creditCardNumber: '',

@@ -227,7 +227,8 @@ class GenericConfigProvider implements ConfigProviderInterface
 
     protected function maxSavedCardCount($methodCode)
     {
-        return $this->_hipayConfig->getValue('max_saved_cards');
+        $maxSavedCards = $this->_hipayConfig->getValue('one_click/max_saved_cards');
+        return $maxSavedCards >= 1 ? $maxSavedCards : time();
     }
 
     protected function isIframeMode($methodCode)
