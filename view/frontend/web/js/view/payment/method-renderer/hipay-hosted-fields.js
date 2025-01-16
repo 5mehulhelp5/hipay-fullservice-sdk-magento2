@@ -258,7 +258,6 @@ define([
 
       self.configHipay = {
         selector: 'hipay-container-hosted-fields',
-        multi_use: self.useOneclick(),
         one_click: {
           enabled: self.useOneclick(),
           cards_display_count: Number(self.getCustomerSavedCardsCount()),
@@ -428,6 +427,9 @@ define([
       fullScreenLoader.startLoader();
       self.hipayHostedFields.getPaymentData().then(
         function (response) {
+          if (response.one_click === true || response.multi_use === true) {
+            self.eci(self.defaultEci);
+          }
           self.creditCardToken(response.token);
           self.creditCardType(response.payment_product);
           self.creditCardOwner(response.card_holder);

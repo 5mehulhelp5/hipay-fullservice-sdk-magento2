@@ -130,9 +130,9 @@ class CcMethod extends FullserviceMethod
         $payment->setAmountAuthorized($order->getTotalDue());
         $payment->setBaseAmountAuthorized($order->getBaseTotalDue());
 
-        $cardMultiUse = $payment->getAdditionalInformation('card_multi_use');
+        $cardMultiUse = (bool) $payment->getAdditionalInformation('card_multi_use');
 
-        if ($cardMultiUse === '1') {
+        if ($cardMultiUse) {
             $cardData = $payment->getAdditionalInformation();
             $customerId = $order->getCustomerId();
 
