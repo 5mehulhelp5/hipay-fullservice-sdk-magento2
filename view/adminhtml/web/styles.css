@@ -153,3 +153,11 @@
     margin: auto;
     width: 50%;
 }
+
+.color-picker {
+    display: none;
+}
+
+.color-picker + .sp-replacer {
+    display: inline-block;
+}

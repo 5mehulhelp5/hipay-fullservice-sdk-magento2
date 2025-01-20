@@ -35,28 +35,22 @@ class HipayColorPicker extends Field
      */
     protected function _getElementHtml(AbstractElement $element)
     {
+        $element->setData('class', 'color-picker');
         $html = $element->getElementHtml();
-        $value = $element->getData('value');
-
         $html .= '<script type="text/javascript">
-            require(["jquery", "jquery/ui"], function ($) {
-                $(document).ready(function () {
-                    var $el = $("#' . $element->getHtmlId() . '");
-                    
-                    $el.spectrum({
+            require(["jquery", "spectrum"], function($) {
+                $(function() {
+                    $(".color-picker").spectrum({
                         showInput: true,
                         allowEmpty: true,
                         showInitial: true,
                         preferredFormat: "hex",
                         clickoutFiresChange: true,
-                        showButtons: true,
-                        change: function(color) {
-                            $el.val(color.toHexString());
-                        }
+                        showButtons: true
                     });
                 });
             });
-            </script>';
+        </script>';
 
         return $html;
     }
