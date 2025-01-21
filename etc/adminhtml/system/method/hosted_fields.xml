@@ -56,7 +56,7 @@
                         <field id="allow_use_oneclick">1</field>
                     </depends>
                     <field id="max_saved_cards" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
-                        <label>Maximum Saved Cards Per Customer</label>
+                        <label>Maximum saved cards displayed per customer</label>
                         <validate>validate-number validate-greater-than-zero</validate>
                         <comment>If you leave the field empty, all the customer's saved cards will be displayed.</comment>
                     </field>

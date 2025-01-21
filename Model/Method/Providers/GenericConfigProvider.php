@@ -153,7 +153,7 @@ class GenericConfigProvider implements ConfigProviderInterface
                             ],
                             'isIframeMode' => [$methodCode => $this->isIframeMode($methodCode)],
                             'useOneclick' => [$methodCode => $this->useOneclick($methodCode)],
-                            'maxSavedCard' => [$methodCode => $this->maxSavedCardCount($methodCode)],
+                            'maxSavedCard' => [$methodCode => $this->getMaxSavedCardCount($methodCode)],
                             'displayCardOwner' => [$methodCode => $this->displayCardOwner($methodCode)],
                             'iFrameWidth' => [$methodCode => $this->getIframeProp($methodCode, 'width')],
                             'iFrameHeight' => [$methodCode => $this->getIframeProp($methodCode, 'height')],
@@ -225,7 +225,7 @@ class GenericConfigProvider implements ConfigProviderInterface
         return (bool)$this->hipayHelper->useOneclick($allowUseOneclick);
     }
 
-    protected function maxSavedCardCount($methodCode)
+    protected function getMaxSavedCardCount($methodCode)
     {
         $maxSavedCards = $this->_hipayConfig->getValue('one_click/max_saved_cards');
         return $maxSavedCards >= 1 ? $maxSavedCards : time();

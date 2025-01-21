@@ -21,6 +21,7 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Module\ResourceInterface;
 use Magento\Framework\Module\ModuleListInterface;
+use Magento\Customer\Model\Session;
 
 /**
  * Main Helper class
@@ -55,18 +56,26 @@ class Data extends AbstractHelper
      */
     protected $moduleList;
 
+    /**
+     * @var Session
+     */
+    protected $customerSession;
+
+
     public function __construct(
         Context $context,
         \HiPay\FullserviceMagento\Model\RuleFactory $ruleFactory,
         ResourceInterface $moduleResource,
         ProductMetadataInterface $productMetadata,
-        ModuleListInterface $moduleList
+        ModuleListInterface $moduleList,
+        Session $customerSession
     ) {
         parent::__construct($context);
         $this->ruleFactory = $ruleFactory;
         $this->moduleResource = $moduleResource;
         $this->productMetadata = $productMetadata;
         $this->moduleList = $moduleList;
+        $this->customerSession = $customerSession;
     }
 
     /**
@@ -116,19 +125,7 @@ class Data extends AbstractHelper
      */
     public function useOneclick($allowUseOneclick)
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $customerSession = $objectManager->get('Magento\Customer\Model\Session');
-
-        if ($customerSession->isLoggedIn()) {
-            switch ((int)$allowUseOneclick) {
-                case 0:
-                    return false;
-                case 1:
-                    return true;
-            }
-            return false;
-        }
-        return false;
+        return $this->customerSession->isLoggedIn() && (bool)$allowUseOneclick;
     }
 
     /**
