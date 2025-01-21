@@ -61,7 +61,6 @@ class Data extends AbstractHelper
      */
     protected $customerSession;
 
-
     public function __construct(
         Context $context,
         \HiPay\FullserviceMagento\Model\RuleFactory $ruleFactory,
